@@ -99,6 +99,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
+                android:onClick="nickedit"
                 android:text="변경"
                 android:textSize="14dp" />
         </RelativeLayout>
@@ -146,6 +147,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
+                android:onClick="univedit"
                 android:text="변경"
                 android:textSize="14dp" />
         </RelativeLayout>
@@ -172,8 +174,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
+                android:onClick="pwedit"
                 android:text="비밀번호 변경"
-                android:textSize="14dp"/>
+                android:textSize="14dp" />
 
             <Button
                 android:id="@+id/button3"

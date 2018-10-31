@@ -1,12 +1,17 @@
 package me.blog.njw1204.studypartner;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -113,4 +118,69 @@ public class SettingActivity extends AppCompatActivity {
         라이센스 4 : retrofit
         라이센스 5 : TinyDB
      */
+
+    public void nickedit(View v){
+        popupedit(1);
+    }
+
+    public void univedit(View v){
+        popupedit(2);
+    }
+
+    public void pwedit(View v){
+        popupedit(0);
+    }
+
+    void popupedit(int type)
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        if (type == 0) {
+            builder.setTitle("비밀번호 변경");
+            final EditText curpw = new EditText(this);
+                curpw.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
+            final EditText newpw = new EditText(this);
+                newpw.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
+            final EditText newpwcheck = new EditText(this);
+                newpwcheck.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
+            builder.setView(curpw);
+            builder.setView(newpw);
+            builder.setView(newpwcheck);
+            builder.setPositiveButton("확인",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            //server
+                            //Toast.makeText(getApplicationContext(),curpw.getText().toString() ,Toast.LENGTH_LONG).show();
+                        }
+                    });
+            builder.setNegativeButton("취소",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                        }
+                    });
+            builder.show();
+        }
+        else {
+            if(type == 1) builder.setTitle("닉네임 변경");
+            else builder.setTitle("대학교 변경");
+            final EditText edittext = new EditText(this);
+            builder.setView(edittext);
+            builder.setPositiveButton("확인",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            //server
+                            //Toast.makeText(getApplicationContext(),edittext.getText().toString() ,Toast.LENGTH_LONG).show();
+                        }
+                    });
+            builder.setNegativeButton("취소",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                        }
+                    });
+            builder.show();
+        }
+        //builder.setMessage("AlertDialog Content");
+    }
+
+
+
 }
