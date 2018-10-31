@@ -19,7 +19,9 @@
         </activity>
         <activity android:name=".MyStudyActivity" />
         <activity android:name=".SettingActivity" />
-        <activity android:name=".StudySearchActivity"></activity>
+        <activity android:name=".StudySearchActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".SignUpActivity"></activity>
     </application>
 
 </manifest>
