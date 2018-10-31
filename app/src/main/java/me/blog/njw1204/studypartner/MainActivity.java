@@ -39,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
         AppFirstInstall();
         applyFontAwesome();
 
-        FetchStudyListAPI();
         InitStudyList();
+        FetchStudyListAPI();
 
         BottomNavi.LetNaviClickListener(this, (BottomNavigationView)findViewById(R.id.bottomnavigationview_main));
         findViewById(R.id.edittext_search_click).setOnClickListener(new View.OnClickListener() {

@@ -13,7 +13,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     public void signUp(View v){
-        //server
+
         finish();
     }
 }

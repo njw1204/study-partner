@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/navi_study_info"
+        app:showAsAction="ifRoom"
+        android:enabled="true"
+        android:icon="@drawable/baseline_search_black_24"
+        android:title="정보" />
+    <item
+        android:id="@+id/navi_study_notice"
+        app:showAsAction="ifRoom"
+        android:enabled="true"
+        android:icon="@drawable/baseline_face_black_24"
+        android:title="공지" />
+    <item
+        android:id="@+id/navi_study_member"
+        app:showAsAction="ifRoom"
+        android:enabled="true"
+        android:icon="@drawable/baseline_face_black_24"
+        android:title="멤버" />
+    <item
+        android:id="@+id/navi_study_chat"
+        app:showAsAction="ifRoom"
+        android:enabled="true"
+        android:icon="@drawable/baseline_settings_black_24"
+        android:title="채팅" />
+</menu>
