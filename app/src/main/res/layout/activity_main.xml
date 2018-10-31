@@ -39,5 +39,22 @@
         android:background="@color/m_grey_350"
         android:paddingTop="3dp"
         android:paddingBottom="3dp"
-        app:menu="@menu/main_navi" />
+        app:menu="@menu/main_navi">
+
+    </android.support.design.widget.BottomNavigationView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="27dp"
+        android:layout_marginBottom="95dp"
+        android:clickable="true"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        app:backgroundTint="@android:color/holo_blue_dark"
+        app:elevation="3dp"
+        app:srcCompat="@drawable/baseline_add_black_48" />
 </RelativeLayout>

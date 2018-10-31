@@ -22,6 +22,10 @@ public interface StudyItemAPI {
     @POST("studypartner/login.php")
     Call<ResponseBody> Login(@Query("id") String id, @Query("pw") String pw);
 
+    @FormUrlEncoded
+    @POST("studypartner/signup.php")
+    Call<ResponseBody> Signup(@Query("id") String id, @Query("pw") String pw, @Query("school") String school, @Query("nick") String nick);
+
     Retrofit retrofit = new Retrofit.Builder()
                             .baseUrl("http://apk.dothome.co.kr/")
                             .build();

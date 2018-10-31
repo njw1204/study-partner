@@ -34,9 +34,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:ems="10"
-                android:hint="ID"
+                android:hint="ID (5~30자)"
                 android:inputType="textPersonName"
                 android:paddingTop="2dp"
+                android:singleLine="true"
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -60,9 +61,10 @@
                 android:layout_height="match_parent"
                 android:layout_weight="10"
                 android:ems="10"
-                android:hint="PW"
+                android:hint="PW (5~30자)"
                 android:inputType="textPassword"
                 android:paddingTop="2dp"
+                android:singleLine="true"
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -89,32 +91,7 @@
                 android:hint="PW Check"
                 android:inputType="textPassword"
                 android:paddingTop="2dp"
-                android:textSize="14sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="70dp"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:text="이메일"
-                android:textSize="13sp" />
-
-            <EditText
-                android:id="@+id/editText4"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="10"
-                android:ems="10"
-                android:hint="Email"
-                android:inputType="textEmailAddress"
-                android:paddingTop="2dp"
+                android:singleLine="true"
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -133,14 +110,15 @@
                 android:textSize="13sp" />
 
             <EditText
-                android:id="@+id/univ"
+                android:id="@+id/newuniv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="10"
                 android:ems="10"
-                android:hint="Univ"
+                android:hint="Univ (5~20자)"
                 android:inputType="textPersonName"
                 android:paddingTop="2dp"
+                android:singleLine="true"
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -164,9 +142,10 @@
                 android:layout_height="match_parent"
                 android:layout_weight="10"
                 android:ems="10"
-                android:hint="Nickname"
+                android:hint="Nickname (2~10자)"
                 android:inputType="textPersonName"
                 android:paddingTop="2dp"
+                android:singleLine="true"
                 android:textSize="14sp" />
         </LinearLayout>
 

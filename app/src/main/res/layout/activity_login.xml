@@ -29,7 +29,8 @@
             android:layout_marginRight="50dp"
             android:ems="10"
             android:hint="ID"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/PW"
@@ -39,7 +40,8 @@
             android:layout_marginRight="50dp"
             android:ems="10"
             android:hint="PW"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:singleLine="true" />
 
         <Button
             android:id="@+id/Login"
