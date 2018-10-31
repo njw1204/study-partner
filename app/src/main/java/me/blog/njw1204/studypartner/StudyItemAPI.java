@@ -10,7 +10,7 @@ import retrofit2.http.Query;
 
 public interface StudyItemAPI {
     @GET("studypartner/study-list.php")
-    Call<ResponseBody> getStudyList(@Query("kind") String kind, @Query("area") String area, @Query("school") String school, @Query("cnt") String cnt);
+    Call<ResponseBody> getStudyList(@Query("kind") String kind, @Query("area") String area, @Query("school") String school);
 
     @GET("studypartner/user-info.php")
     Call<ResponseBody> getUserInfo(@Query("id") String id);

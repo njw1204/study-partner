@@ -44,6 +44,9 @@ public class SignUpActivity extends AppCompatActivity {
             case 5:
                 CUtils.SimpleDialogShow(this, "닉네임을 2~10자로 입력해주세요.", true);
                 break;
+            case 6:
+                CUtils.SimpleDialogShow(this, "아이디와 비밀번호는 공백을 포함할 수 없습니다.", true);
+                break;
             default:
                 SignupRequestToServer(id, pw, school, nick);
                 break;
@@ -61,6 +64,8 @@ public class SignUpActivity extends AppCompatActivity {
             return 4;
         if (nick.length() < 2  || nick.length() > 10)
             return 5;
+        if (id.contains(" ") || pw.contains(" "))
+            return 6;
 
         return 0;
     }

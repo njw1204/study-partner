@@ -16,18 +16,21 @@ public class BottomNavi {
                 switch (item.getItemId()) {
                     case R.id.navi_my_study:
                         intent = new Intent(activity, MyStudyActivity.class);
+                        intent.putExtra("id", activity.getIntent().getStringExtra("id"));
                         activity.startActivity(intent);
                         activity.overridePendingTransition(0, 0);
                         activity.finish();
                         return true;
                     case R.id.navi_study_list:
                         intent = new Intent(activity, MainActivity.class);
+                        intent.putExtra("id", activity.getIntent().getStringExtra("id"));
                         activity.startActivity(intent);
                         activity.overridePendingTransition(0, 0);
                         activity.finish();
                         return true;
                     case R.id.navi_setting:
                         intent = new Intent(activity, SettingActivity.class);
+                        intent.putExtra("id", activity.getIntent().getStringExtra("id"));
                         activity.startActivity(intent);
                         activity.overridePendingTransition(0, 0);
                         activity.finish();

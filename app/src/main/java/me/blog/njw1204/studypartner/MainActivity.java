@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, StudySearchActivity.class);
+                intent.putExtra("id", getIntent().getStringExtra("id"));
                 startActivity(intent);
             }
         });
@@ -64,12 +65,7 @@ public class MainActivity extends AppCompatActivity {
     private void FetchStudyListAPI() {
         Intent intent = getIntent();
         StudyItemAPI api = StudyItemAPI.retrofit.create(StudyItemAPI.class);
-        Call<ResponseBody> http = api.getStudyList(
-            intent.getStringExtra("kind"),
-            intent.getStringExtra("area"),
-            intent.getStringExtra("school"),
-            intent.getStringExtra("cnt")
-        );
+        Call<ResponseBody> http = api.getStudyList("", "", "");
         http.enqueue(new Callback<ResponseBody>(){
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
