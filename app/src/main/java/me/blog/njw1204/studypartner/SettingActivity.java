@@ -92,7 +92,7 @@ public class SettingActivity extends AppCompatActivity {
         findViewById(R.id.button_developer).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CUtils.SimpleDialogShow(getApplicationContext(), "TEAM 파티구함\n개발자 : 나종우, 주영석", true);
+                CUtils.SimpleDialogShow(SettingActivity.this, "TEAM 파티구함\n개발자 : 나종우, 주영석", true);
             }
         });
         findViewById(R.id.checkbox_push_gongji).setOnClickListener(new View.OnClickListener() {

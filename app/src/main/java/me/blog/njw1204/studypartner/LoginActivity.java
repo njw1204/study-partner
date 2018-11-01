@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.io.IOException;
 
@@ -58,6 +59,7 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
+                Toast.makeText(getApplicationContext(), "로그인에 성공했습니다.", Toast.LENGTH_SHORT).show();
                 Intent login = new Intent(getApplicationContext(), MainActivity.class);
                 login.putExtra("id", id);
                 startActivity(login);

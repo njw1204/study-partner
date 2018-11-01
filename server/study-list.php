@@ -5,15 +5,15 @@
     $kind = mysqli_real_escape_string($conn, $_GET["kind"]);
     $area = mysqli_real_escape_string($conn, $_GET["area"]);
     $school = mysqli_real_escape_string($conn, $_GET["school"]);
-    $query = "SELECT icon, title, kind, school, cnt FROM studypartner_study_list WHERE 1=1";
+    $query = "SELECT study_no, title, kind, school, cnt FROM studypartner_study_list WHERE 1=1";
 
-    if (strlen($kind) {
+    if (strlen($kind)) {
         $query = $query." AND kind='$kind'";
     }
-    if (strlen($area) {
+    if (strlen($area)) {
         $query = $query." AND area='$area'";
     }
-    if (strlen($school) {
+    if (strlen($school)) {
         $query = $query." AND school LIKE '%$school%'";
     }
 
@@ -22,6 +22,12 @@
     if ($res) {
         while ($row = mysqli_fetch_assoc($res)) {
             $row['cnt'] = (int)$row['cnt'];
+            if (is_file("/studypartner/icon/" . $row['study_no'] . ".png")) {
+                $row['icon'] = "http://" . $_SERVER['HTTP_HOST'] . "/studypartner/icon/" . $row['study_no'] . ".png";
+            }
+            else {
+                $row['icon'] = "";
+            }
             $result[] = $row;
         }
     } else {

@@ -3,8 +3,10 @@ package me.blog.njw1204.studypartner;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 
@@ -94,6 +96,7 @@ public class SignUpActivity extends AppCompatActivity {
                     return;
                 }
 
+                Toast.makeText(getApplicationContext(), "회원가입이 완료되었습니다.", Toast.LENGTH_SHORT).show();
                 finish();
             }
 

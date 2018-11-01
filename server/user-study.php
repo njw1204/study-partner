@@ -22,12 +22,18 @@
         die("[]");
     }
 
-    $query = "SELECT icon, title, kind, school, cnt FROM studypartner_study_list WHERE study_no IN (" . implode(",", $result) . ")";
+    $query = "SELECT study_no, title, kind, school, cnt FROM studypartner_study_list WHERE study_no IN (" . implode(",", $result) . ")";
     $res = mysqli_query($conn, $query);
     $result = array();
     if ($res) {
         while ($row = mysqli_fetch_assoc($res)) {
             $row['cnt'] = (int)$row['cnt'];
+            if (is_file("/studypartner/icon/" . $row['study_no'] . ".png")) {
+                $row['icon'] = "http://" . $_SERVER['HTTP_HOST'] . "/studypartner/icon/" . $row['study_no'] . ".png";
+            }
+            else {
+                $row['icon'] = "";
+            }
             $result[] = $row;
         }
     } else {

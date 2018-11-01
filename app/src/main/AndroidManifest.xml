@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="me.blog.njw1204.studypartner">
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -9,18 +10,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivity">
+        <activity android:name=".LoginActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MyStudyActivity" />
-        <activity android:name=".SettingActivity" />
-        <activity android:name=".StudySearchActivity" />
-        <activity android:name=".SignUpActivity" />
-        <activity android:name=".StudyInfoActivity"></activity>
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".MyStudyActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".SettingActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".StudySearchActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".SignUpActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".StudyInfoActivity"
+            android:screenOrientation="portrait" />
     </application>
-
 </manifest>

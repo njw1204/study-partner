@@ -19,8 +19,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@color/m_grey_350"
-        android:paddingTop="3dp"
-        android:paddingBottom="3dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         app:menu="@menu/main_navi" />
 
 </RelativeLayout>

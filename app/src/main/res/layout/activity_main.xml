@@ -12,12 +12,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_margin="5dp"
+        android:layout_margin="10dp"
         android:clickable="true"
-        android:focusable="false"
         android:ems="10"
+        android:focusable="false"
         android:inputType="textPersonName"
-        android:text="\uf002  스터디를 검색해보세요" />
+        android:hint="\uf002  스터디를 검색해보세요" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview_study_list"
@@ -37,8 +37,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@color/m_grey_350"
-        android:paddingTop="3dp"
-        android:paddingBottom="3dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         app:menu="@menu/main_navi">
 
     </android.support.design.widget.BottomNavigationView>
@@ -49,12 +49,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginRight="27dp"
-        android:layout_marginBottom="95dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="100dp"
         android:clickable="true"
-        android:scaleX="1.5"
-        android:scaleY="1.5"
-        app:backgroundTint="@android:color/holo_blue_dark"
+        android:scaleX="1.2"
+        android:scaleY="1.2"
+        android:tint="@android:color/background_light"
+        app:backgroundTint="@color/design_default_color_primary"
         app:elevation="3dp"
         app:srcCompat="@drawable/baseline_add_black_48" />
 </RelativeLayout>

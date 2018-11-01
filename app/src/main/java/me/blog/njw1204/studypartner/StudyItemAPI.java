@@ -3,6 +3,7 @@ package me.blog.njw1204.studypartner;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Retrofit;
+import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -20,11 +21,11 @@ public interface StudyItemAPI {
 
     @FormUrlEncoded
     @POST("studypartner/login.php")
-    Call<ResponseBody> Login(@Query("id") String id, @Query("pw") String pw);
+    Call<ResponseBody> Login(@Field("id") String id, @Field("pw") String pw);
 
     @FormUrlEncoded
     @POST("studypartner/signup.php")
-    Call<ResponseBody> Signup(@Query("id") String id, @Query("pw") String pw, @Query("school") String school, @Query("nick") String nick);
+    Call<ResponseBody> Signup(@Field("id") String id, @Field("pw") String pw, @Field("school") String school, @Field("nick") String nick);
 
     Retrofit retrofit = new Retrofit.Builder()
                             .baseUrl("http://apk.dothome.co.kr/")
