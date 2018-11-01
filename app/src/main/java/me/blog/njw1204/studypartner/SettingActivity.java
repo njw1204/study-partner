@@ -71,7 +71,7 @@ public class SettingActivity extends AppCompatActivity {
                     JSONObject jsonObject = new JSONObject(result);
                     String id = jsonObject.getString("id");
                     String nick = jsonObject.getString("nick");
-                    String school = jsonObject.getString("school");
+                    String school = CUtils.NNNull(jsonObject.getString("school"));
                     ((TextView)findViewById(R.id.textview_now_id)).setText(id);
                     ((TextView)findViewById(R.id.textView_now_nickname)).setText(nick);
                     ((TextView)findViewById(R.id.textview_now_school)).setText(school);

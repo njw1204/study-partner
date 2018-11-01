@@ -21,6 +21,11 @@ public class CUtils {
         else return str;
     }
 
+    public static String NNNull(String str) {
+        if (str == null || str.equals("null")) return "";
+        else return str;
+    }
+
     public static void SimpleDialogShow(Context context, String msg, boolean cancelable) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {

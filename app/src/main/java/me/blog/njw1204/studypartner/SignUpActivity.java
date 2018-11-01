@@ -60,9 +60,9 @@ public class SignUpActivity extends AppCompatActivity {
             return 2;
         if (!pw.equals(pww))
             return 3;
-        if (school.length() < 5 || school.length() > 20)
+        if (school.length() != 0 && (school.length() < 5 || school.length() > 20))
             return 4;
-        if (nick.length() < 2  || nick.length() > 10)
+        if (nick.length() < 2 || nick.length() > 10)
             return 5;
         if (id.contains(" ") || pw.contains(" "))
             return 6;
@@ -71,7 +71,6 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void SignupRequestToServer(final String id, final String pw, final String school, final String nick) {
-        Intent intent = getIntent();
         StudyItemAPI api = StudyItemAPI.retrofit.create(StudyItemAPI.class);
         Call<ResponseBody> http = api.Signup(id, pw, school, nick);
         http.enqueue(new Callback<ResponseBody>() {
