@@ -7,7 +7,9 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -135,21 +137,19 @@ public class SettingActivity extends AppCompatActivity {
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         if (type == 0) {
+            LayoutInflater inflater = getLayoutInflater();
+            View view = inflater.inflate(R.layout.dialog_pwedit, null);
+            builder.setView(view);
             builder.setTitle("비밀번호 변경");
-            final EditText curpw = new EditText(this);
-                curpw.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
-            final EditText newpw = new EditText(this);
-                newpw.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
-            final EditText newpwcheck = new EditText(this);
-                newpwcheck.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
-            builder.setView(curpw);
-            builder.setView(newpw);
-            builder.setView(newpwcheck);
+            final EditText curpw = view.findViewById(R.id.curpw_dialog);
+            final EditText newpw = view.findViewById(R.id.newpw_dialog);
+            final EditText newpwcheck = view.findViewById(R.id.newpwcheck_dialog);
+
             builder.setPositiveButton("확인",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             //server
-                            //Toast.makeText(getApplicationContext(),curpw.getText().toString() ,Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),curpw.getText().toString() ,Toast.LENGTH_LONG).show();
                         }
                     });
             builder.setNegativeButton("취소",
@@ -163,12 +163,13 @@ public class SettingActivity extends AppCompatActivity {
             if(type == 1) builder.setTitle("닉네임 변경");
             else builder.setTitle("대학교 변경");
             final EditText edittext = new EditText(this);
+            builder.setMessage("");
             builder.setView(edittext);
             builder.setPositiveButton("확인",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             //server
-                            //Toast.makeText(getApplicationContext(),edittext.getText().toString() ,Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),edittext.getText().toString() ,Toast.LENGTH_LONG).show();
                         }
                     });
             builder.setNegativeButton("취소",
