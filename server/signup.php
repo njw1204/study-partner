@@ -1,12 +1,12 @@
 <?php
-    header('Content-Type: application/json; charset=utf-8');
+    header('Content-Type: text/html; charset=utf-8');
     $conn = mysqli_connect("localhost", "", "", "");
     $conn->set_charset("utf8mb4");
     $id = mysqli_real_escape_string($conn, $_POST["id"]);
     $pw = mysqli_real_escape_string($conn, hash("sha256", $_POST["pw"]));
     $school = mysqli_real_escape_string($conn, $_POST["school"]);
     $nick = mysqli_real_escape_string($conn, $_POST["nick"]);
-    $query = "SELECT COUNT(*) FROM user_info WHERE id='$id'";
+    $query = "SELECT COUNT(*) FROM studypartner_user_info WHERE id='$id'";
 
     $res = mysqli_query($conn, $query);
     if ($res) {
@@ -27,7 +27,7 @@
         die("error");
     }
 
-    $query = "INSERT INTO user_info ('id', 'pw', 'school', 'nick') VALUES ('$id', '$pw', '$school', '$nick')";
+    $query = "INSERT INTO studypartner_user_info ('id', 'pw', 'school', 'nick') VALUES ('$id', '$pw', '$school', '$nick')";
     $res = mysqli_query($conn, $query);
     if ($res) {
         mysqli_close($conn);

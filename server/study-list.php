@@ -5,7 +5,7 @@
     $kind = mysqli_real_escape_string($conn, $_GET["kind"]);
     $area = mysqli_real_escape_string($conn, $_GET["area"]);
     $school = mysqli_real_escape_string($conn, $_GET["school"]);
-    $query = "SELECT icon, title, kind, school, cnt FROM study_list WHERE 1=1";
+    $query = "SELECT icon, title, kind, school, cnt FROM studypartner_study_list WHERE 1=1";
 
     if (strlen($kind) {
         $query = $query." AND kind='$kind'";

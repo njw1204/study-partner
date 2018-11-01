@@ -3,7 +3,7 @@
     $conn = mysqli_connect("localhost", "", "", "");
     $conn->set_charset("utf8mb4");
     $id = mysqli_real_escape_string($conn, $_GET["id"]);
-    $query = "SELECT study_no FROM user_study WHERE id='$id'";
+    $query = "SELECT study_no FROM studypartner_user_study WHERE id='$id'";
 
     $res = mysqli_query($conn, $query);
     $result = array();
@@ -17,7 +17,12 @@
         die("error");
     }
 
-    $query = "SELECT icon, title, kind, school, cnt FROM study_list WHERE study_no IN (" . implode(",", $result)) . ")";
+    if (count($result) == 0) {
+        mysqli_close($conn);
+        die("[]");
+    }
+
+    $query = "SELECT icon, title, kind, school, cnt FROM studypartner_study_list WHERE study_no IN (" . implode(",", $result) . ")";
     $res = mysqli_query($conn, $query);
     $result = array();
     if ($res) {

@@ -3,7 +3,7 @@
     $conn = mysqli_connect("localhost", "", "", "");
     $conn->set_charset("utf8mb4");
     $id = mysqli_real_escape_string($conn, $_GET["id"]);
-    $query = "SELECT id, nick, school FROM user_info WHERE id='$id'";
+    $query = "SELECT id, nick, school FROM studypartner_user_info WHERE id='$id'";
 
     $res = mysqli_query($conn, $query);
     if ($res) {
