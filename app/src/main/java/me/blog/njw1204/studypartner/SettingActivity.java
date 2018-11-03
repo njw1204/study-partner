@@ -111,6 +111,24 @@ public class SettingActivity extends AppCompatActivity {
                 tinyDB.putBoolean("push_study", ((CheckBox)v).isChecked());
             }
         });
+        findViewById(R.id.button_change_nick).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupedit(1);
+            }
+        });
+        findViewById(R.id.button_change_school).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupedit(2);
+            }
+        });
+        findViewById(R.id.button_pwedit).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupedit(0);
+            }
+        });
     }
 
     /*
@@ -120,18 +138,6 @@ public class SettingActivity extends AppCompatActivity {
         라이센스 4 : retrofit
         라이센스 5 : TinyDB
      */
-
-    public void nickedit(View v){
-        popupedit(1);
-    }
-
-    public void univedit(View v){
-        popupedit(2);
-    }
-
-    public void pwedit(View v){
-        popupedit(0);
-    }
 
     void popupedit(int type)
     {
