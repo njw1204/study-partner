@@ -3,7 +3,7 @@
     package="me.blog.njw1204.studypartner">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".StudyPartner"
@@ -42,12 +42,16 @@
         <activity
             android:name=".StudyInfoActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".StudyMemberActivity"
+        <activity
+            android:name=".StudyMemberActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".StudyMakeActivity"
+        <activity
+            android:name=".StudyMakeActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".StudyMakeAddIconActivity"
+        <activity
+            android:name=".StudyMakeAddIconActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".StudyMainActivity"></activity>
     </application>
 
 </manifest>
