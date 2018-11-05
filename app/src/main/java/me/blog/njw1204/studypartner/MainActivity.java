@@ -64,6 +64,17 @@ public class MainActivity extends AppCompatActivity {
                 overridePendingTransition(0, 0);
             }
         });
+        findViewById(R.id.floatingActionButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, StudyMakeActivity.class);
+                intent.putExtra("id", getIntent().getStringExtra("id"));
+                intent.putExtra("pw", getIntent().getStringExtra("pw"));
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            }
+        });
+    }
 
     @Override
     public void onBackPressed() {

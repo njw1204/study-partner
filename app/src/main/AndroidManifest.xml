@@ -44,6 +44,10 @@
             android:screenOrientation="portrait" />
         <activity android:name=".StudyMemberActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".StudyMakeActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".StudyMakeAddIconActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
