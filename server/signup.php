@@ -39,9 +39,9 @@
     }
 
     if ($school_len)
-        $query = "INSERT INTO studypartner_user_info ('id', 'pw', 'school', 'nick') VALUES ('$id', '$pw', '$school', '$nick')";
+        $query = "INSERT INTO studypartner_user_info (id, pw, school, nick) VALUES ('$id', '$pw', '$school', '$nick')";
     else
-        $query = "INSERT INTO studypartner_user_info ('id', 'pw', 'nick') VALUES ('$id', '$pw', '$nick')";
+        $query = "INSERT INTO studypartner_user_info (id, pw, nick) VALUES ('$id', '$pw', '$nick')";
 
     $res = mysqli_query($conn, $query);
     if ($res) {

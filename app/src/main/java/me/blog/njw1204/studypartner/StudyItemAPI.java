@@ -13,11 +13,27 @@ public interface StudyItemAPI {
     @GET("studypartner/study-list.php")
     Call<ResponseBody> getStudyList(@Query("kind") String kind, @Query("area") String area, @Query("school") String school);
 
+    @GET("studypartner/study-info.php")
+    Call<ResponseBody> getStudyInfo(@Query("study_no") int study_no);
+
+    @GET("studypartner/study-member-list.php")
+    Call<ResponseBody> getStudyMemberList(@Query("study_no") int study_no);
+
     @GET("studypartner/user-info.php")
     Call<ResponseBody> getUserInfo(@Query("id") String id);
 
     @GET("studypartner/user-study.php")
     Call<ResponseBody> getUserStudy(@Query("id") String id);
+
+    @FormUrlEncoded
+    @POST("studypartner/study-make.php")  // 아이콘 추가 구현
+    Call<ResponseBody> postStudyMake(@Field("id") String id, @Field("pw") String pw, @Field("title") String title,
+                                     @Field("kind") String kind, @Field("area") String area, @Field("school") String school,
+                                     @Field("contact") String contact, @Field("info") String info);
+
+    @FormUrlEncoded
+    @POST("studypartner/study-apply.php")
+    Call<ResponseBody> postStudyApply(@Field("study_no") int study_no, @Field("id") String id, @Field("pw") String pw, @Field("msg") String msg);
 
     @FormUrlEncoded
     @POST("studypartner/login.php")

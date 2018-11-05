@@ -28,11 +28,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
-            android:background="#e0e0e0"
+            android:background="@color/bottom_navi_color"
             android:paddingLeft="5dp"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:text="멤버" />
+            android:text="멤버"
+            android:textColor="@color/design_default_color_primary_dark" />
     </LinearLayout>
 
     <ListView
@@ -40,7 +41,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/layout1"
-        android:layout_marginTop="10dp"
-        android:paddingLeft="20dp"></ListView>
+        android:layout_marginTop="10dp" />
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottomnavi_study_member"
+        android:layout_width="wrap_content"
+        android:layout_height="65dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/bottom_navi_color"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        app:menu="@menu/study_navi" />
 
 </RelativeLayout>

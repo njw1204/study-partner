@@ -3,6 +3,7 @@ package me.blog.njw1204.studypartner;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,7 +12,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CursorAdapter;
 import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,9 +42,23 @@ public class SettingActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomnavigationview_setting);
         bottomNavigationView.setSelectedItemId(R.id.navi_setting);
-        BottomNavi.LetNaviClickListener(this, (BottomNavigationView)findViewById(R.id.bottomnavigationview_setting));
+        BottomNavi.LetNaviClickListener(this, bottomNavigationView);
 
         LetClickListener();
+    }
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setPositiveButton("종료", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+        builder.setNegativeButton("취소", null);
+        builder.setMessage("앱을 종료하시겠습니까?");
+        builder.setCancelable(true);
+        builder.show();
     }
 
     private void RestorePushChecked() {
@@ -129,6 +147,12 @@ public class SettingActivity extends AppCompatActivity {
                 popupedit(0);
             }
         });
+        findViewById(R.id.button_byebye).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CUtils.SimpleDialogShow(SettingActivity.this, "현재는 데모 기간으로, 이 기능을 사용하실 수 없습니다.", true);
+            }
+        });
     }
 
     /*
@@ -137,10 +161,11 @@ public class SettingActivity extends AppCompatActivity {
         라이센스 3 : Book free icon : Icons made by Freepik from CC 3.0 BY
         라이센스 4 : retrofit
         라이센스 5 : TinyDB
+        라이센스 6 : wasabeef/recyclerview-animators
+        라이센스 7 : JakeWharton/butterknife
      */
 
-    void popupedit(int type)
-    {
+    void popupedit(int type) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         if (type == 0) {
             LayoutInflater inflater = getLayoutInflater();
@@ -155,7 +180,7 @@ public class SettingActivity extends AppCompatActivity {
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             //server
-                            Toast.makeText(getApplicationContext(),curpw.getText().toString() ,Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "관리자 승인후 변경됩니다." , Toast.LENGTH_LONG).show();
                         }
                     });
             builder.setNegativeButton("취소",
@@ -168,14 +193,25 @@ public class SettingActivity extends AppCompatActivity {
         else {
             if(type == 1) builder.setTitle("닉네임 변경");
             else builder.setTitle("대학교 변경");
+            final FrameLayout frameLayout = new FrameLayout(this);
             final EditText edittext = new EditText(this);
-            builder.setMessage("");
-            builder.setView(edittext);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT
+            );
+            layoutParams.setMargins(
+                CUtils.DP(this, 15),
+                CUtils.DP(this, 15),
+                CUtils.DP(this, 15),
+                CUtils.DP(this, 15)
+            );
+            edittext.setLayoutParams(layoutParams);
+            frameLayout.addView(edittext);
+            builder.setView(frameLayout);
             builder.setPositiveButton("확인",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             //server
-                            Toast.makeText(getApplicationContext(),edittext.getText().toString() ,Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "관리자 승인후 변경됩니다." , Toast.LENGTH_LONG).show();
                         }
                     });
             builder.setNegativeButton("취소",
@@ -185,9 +221,5 @@ public class SettingActivity extends AppCompatActivity {
                     });
             builder.show();
         }
-        //builder.setMessage("AlertDialog Content");
     }
-
-
-
 }

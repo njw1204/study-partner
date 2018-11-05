@@ -9,11 +9,13 @@ import android.widget.RadioButton;
 import android.widget.Toolbar;
 
 public class StudySearchActivity extends AppCompatActivity {
+    private Typeface fas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_study_search);
+        fas = Typeface.createFromAsset(getAssets(), "fa_solid_900.ttf");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("스터디 검색");
         applyFontAwesome();
@@ -36,7 +38,6 @@ public class StudySearchActivity extends AppCompatActivity {
     }
 
     private void applyFontAwesome() {
-        Typeface fas = Typeface.createFromAsset(getAssets(), "fa_solid_900.ttf");
         int[] editTextIdArrForFas = {
             R.id.edittext_search_real
         };

@@ -34,9 +34,18 @@ public class StudyRecyclerAdapter extends RecyclerView.Adapter<StudyRecyclerAdap
     @Override
     public void onBindViewHolder(@NonNull StudyItemViewHolder studyItemViewHolder, int i) {
         StudyItem item = items.get(i);
-        studyItemViewHolder.title.setText(item.getTitle());
-        studyItemViewHolder.kind.setText(item.getKind());
-        studyItemViewHolder.school.setText(String.format("/%s", CUtils.NNull(item.getSchool())));
+        studyItemViewHolder.title.setText(
+            item.isStaff()
+                ? String.format("[관리] %s", item.getTitle()) : item.getTitle()
+        );
+        if (CUtils.IsPseudoEmpty(item.getKind()))
+            studyItemViewHolder.kind.setText("기타");
+        else
+            studyItemViewHolder.kind.setText(CUtils.NNNull(item.getKind()));
+        if (CUtils.IsPseudoEmpty(item.getSchool()))
+            studyItemViewHolder.school.setText("");
+        else
+            studyItemViewHolder.school.setText(String.format("/%s", item.getSchool()));
         studyItemViewHolder.cnt.setText(String.format(Locale.KOREA, "%d명", item.getCnt()));
         RequestOptions options = new RequestOptions()
                                      .centerCrop()

@@ -30,9 +30,11 @@
             android:layout_centerVertical="false"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
+            android:background="@drawable/border"
             android:ems="10"
             android:hint="아이디"
             android:inputType="textPersonName"
+            android:padding="7dp"
             android:singleLine="true"
             android:textSize="20dp" />
 
@@ -44,11 +46,13 @@
             android:layout_centerHorizontal="false"
             android:layout_centerVertical="false"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="50dp"
+            android:background="@drawable/border"
             android:ems="10"
             android:hint="비밀번호"
             android:inputType="textPassword"
+            android:padding="7dp"
             android:singleLine="true"
             android:textSize="20dp" />
 
@@ -58,7 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/PW"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="15dp"
             android:layout_marginRight="50dp"
             android:background="@color/colorAccent"
             android:onClick="login"

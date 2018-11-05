@@ -173,13 +173,13 @@
                 android:textSize="14dp" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/button_byebye"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
                 android:text="회원 탈퇴"
-                android:textSize="14dp"/>
+                android:textSize="14dp" />
         </LinearLayout>
 
         <TextView
@@ -260,11 +260,11 @@
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottomnavigationview_setting"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="65dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/m_grey_350"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
+        android:background="#d8d8d8"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
         app:menu="@menu/main_navi" />
 
 </RelativeLayout>

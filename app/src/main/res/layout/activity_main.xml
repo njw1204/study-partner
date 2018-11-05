@@ -34,11 +34,11 @@
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottomnavigationview_main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="65dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/m_grey_350"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
+        android:background="#d8d8d8"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
         app:menu="@menu/main_navi">
 
     </android.support.design.widget.BottomNavigationView>

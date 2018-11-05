@@ -1,5 +1,6 @@
 package me.blog.njw1204.studypartner;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+        getSupportActionBar().setTitle("회원가입");
     }
 
     public void signUp(View v) {
@@ -75,6 +77,7 @@ public class SignUpActivity extends AppCompatActivity {
     private void SignupRequestToServer(final String id, final String pw, final String school, final String nick) {
         StudyItemAPI api = StudyItemAPI.retrofit.create(StudyItemAPI.class);
         Call<ResponseBody> http = api.Signup(id, pw, school, nick);
+        final ProgressDialog pd = CUtils.showProgress(this, "로딩 중..", false);
         http.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -96,12 +99,14 @@ public class SignUpActivity extends AppCompatActivity {
                     return;
                 }
 
+                CUtils.hideProgress(pd);
                 Toast.makeText(getApplicationContext(), "회원가입이 완료되었습니다.", Toast.LENGTH_SHORT).show();
                 finish();
             }
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
+                CUtils.hideProgress(pd);
                 CUtils.SimpleDialogShow(SignUpActivity.this, "회원가입에 실패했습니다.", true);
             }
         });
