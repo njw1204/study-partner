@@ -152,6 +152,8 @@ public class SettingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 CUtils.SimpleDialogShow(SettingActivity.this, "현재는 데모 기간으로, 이 기능을 사용하실 수 없습니다.", true);
+                Intent plan = new Intent(getApplicationContext(), StudyPlanActivity.class);
+                startActivity(plan);
             }
         });
         findViewById(R.id.button_license).setOnClickListener(new View.OnClickListener() {

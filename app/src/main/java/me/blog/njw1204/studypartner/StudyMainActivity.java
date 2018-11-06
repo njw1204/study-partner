@@ -16,6 +16,7 @@ public class StudyMainActivity extends AppCompatActivity {
     }
 
     private void LetClickListener() {
+        final Intent intent = getIntent();
         findViewById(R.id.layout_Info).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,18 +45,13 @@ public class StudyMainActivity extends AppCompatActivity {
                 //startActivity(planIntent);
             }
         });
-        findViewById(R.id.layout_Goal).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Intent goalIntent = new Intent(getApplicationContext(), StudyGoalActivity.class);
-                //startActivity(goalIntent);
-            }
-        });
         findViewById(R.id.layout_Chat).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent chatIntent = new Intent(getApplicationContext(), StudyChatActivity.class);
-                //startActivity(chatIntent);
+                Intent chatIntent = new Intent(getApplicationContext(), StudyChatActivity.class);
+                chatIntent.putExtra("userid", intent.getStringExtra("id"));
+                chatIntent.putExtra("chatname", intent.getStringExtra("title"));
+                startActivity(chatIntent);
             }
         });
         findViewById(R.id.layout_Mail).setOnClickListener(new View.OnClickListener() {

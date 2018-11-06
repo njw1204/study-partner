@@ -179,48 +179,10 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/layout_Goal"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_below="@+id/layout_Plan"
-                android:clickable="true">
-
-                <ImageView
-                    android:id="@+id/goal"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_margin="10dp"
-                    app:srcCompat="@drawable/baseline_format_list_numbered_black_48dp" />
-
-                <TextView
-                    android:id="@+id/studyGoalText"
-                    android:layout_width="match_parent"
-                    android:layout_height="49dp"
-                    android:layout_alignParentLeft="false"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_toRightOf="@+id/goal"
-                    android:background="#00ffffff"
-                    android:gravity="left|center_vertical"
-                    android:text="목표"
-                    android:textColor="#424242" />
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_below="@+id/studyGoalText"
-                    android:background="#424242">
-
-                </FrameLayout>
-            </RelativeLayout>
-
-            <RelativeLayout
                 android:id="@+id/layout_Chat"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_below="@+id/layout_Goal"
+                android:layout_below="@+id/layout_Plan"
                 android:clickable="true">
 
                 <ImageView
