@@ -33,4 +33,7 @@ dependencies {
     implementation 'jp.wasabeef:recyclerview-animators:2.3.0'
     implementation 'com.jakewharton:butterknife:9.0.0-rc1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-rc1'
+    implementation 'com.google.firebase:firebase-core:16.0.5'
+    implementation 'com.google.firebase:firebase-database:16.0.4'
 }
+apply plugin: 'com.google.gms.google-services'

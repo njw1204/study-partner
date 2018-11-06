@@ -33,8 +33,8 @@ public class StudyMainActivity extends AppCompatActivity {
         findViewById(R.id.layout_Member).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent memberIntent = new Intent(getApplicationContext(), StudyMemberActivty.class);
-                //startActivity(memberIntent);
+                Intent memberIntent = new Intent(getApplicationContext(), StudyMemberActivity.class);
+                startActivity(memberIntent);
             }
         });
         findViewById(R.id.layout_Plan).setOnClickListener(new View.OnClickListener() {

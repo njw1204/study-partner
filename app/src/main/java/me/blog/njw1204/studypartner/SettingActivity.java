@@ -109,6 +109,7 @@ public class SettingActivity extends AppCompatActivity {
     }
 
     private void LetClickListener() {
+        final Intent intent = getIntent();
         findViewById(R.id.button_developer).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -151,6 +152,15 @@ public class SettingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 CUtils.SimpleDialogShow(SettingActivity.this, "현재는 데모 기간으로, 이 기능을 사용하실 수 없습니다.", true);
+            }
+        });
+        findViewById(R.id.button_license).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent license = new Intent(getApplicationContext(), StudyChatActivity.class);
+                license.putExtra("userid", intent.getStringExtra("id"));
+                license.putExtra("chatname", "test_license");
+                startActivity(license);
             }
         });
     }
