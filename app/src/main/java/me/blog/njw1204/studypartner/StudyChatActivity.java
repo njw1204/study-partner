@@ -17,8 +17,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class StudyChatActivity extends AppCompatActivity {
 
@@ -70,7 +68,7 @@ public class StudyChatActivity extends AppCompatActivity {
     }
 
     private void openChat(String chatName) {
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1);
+        final ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.chat_message, R.id.text_chatmessage);
         chat_view.setAdapter(adapter);
 
 
