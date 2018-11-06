@@ -1,12 +1,16 @@
 package me.blog.njw1204.studypartner;
 
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.Query;
 
 public interface StudyItemAPI {
@@ -30,6 +34,11 @@ public interface StudyItemAPI {
     Call<ResponseBody> postStudyMake(@Field("id") String id, @Field("pw") String pw, @Field("title") String title,
                                      @Field("kind") String kind, @Field("area") String area, @Field("school") String school,
                                      @Field("contact") String contact, @Field("info") String info);
+
+    @Multipart
+    @POST("studypartner/upload-icon.php")
+    Call<ResponseBody> postIcon(@Part("id") RequestBody id, @Part("pw") RequestBody pw,
+                                @Part("title") RequestBody title, @Part MultipartBody.Part file);
 
     @FormUrlEncoded
     @POST("studypartner/study-apply.php")

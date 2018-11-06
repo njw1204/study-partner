@@ -53,8 +53,8 @@ public class StudyInfoActivity extends AppCompatActivity {
         if (showIcon) {
             RequestOptions options = new RequestOptions()
                                          .centerCrop()
-                                         .placeholder(R.drawable.book)
-                                         .error(R.drawable.book);
+                                         .placeholder(R.color.bottom_navi_color)
+                                         .error(R.color.bottom_navi_color);
             Glide.with(this)
                 .load(intent.getStringExtra("icon"))
                 .apply(options)

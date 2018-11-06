@@ -8,17 +8,27 @@
     $title = mysqli_real_escape_string($conn, $_POST["title"]);
     $kind = mysqli_real_escape_string($conn, $_POST["kind"]);
     $area = mysqli_real_escape_string($conn, $_POST["area"]);
-    $school = mysqli_real_escape_string($conn, $_POST["school"]); // T, F 판별로 변경
+    $school = mysqli_real_escape_string($conn, $_POST["school"]);
     $contact = mysqli_real_escape_string($conn, $_POST["contact"]);
     $info = mysqli_real_escape_string($conn, $_POST["info"]);
 
-    $query = "SELECT COUNT(*) FROM studypartner_user_info WHERE id='$id' AND pw='$pw'";
+    $query = "SELECT COUNT(*), school FROM studypartner_user_info WHERE id='$id' AND pw='$pw'";
     $res = mysqli_query($conn, $query);
     if ($res) {
         if ($row = mysqli_fetch_array($res)) {
             if ((int)$row[0] != 1) {
                 mysqli_close($conn);
                 die("error");
+            }
+            if ($school == "T" && $row[1]) {
+                $school = $row[1];
+            }
+            else if ($school == "T") {
+                mysqli_close($conn);
+                die("no school");
+            }
+            else {
+                $school = null;
             }
         }
         else {
@@ -52,7 +62,7 @@
         die("error");
     }
 
-    $query = "INSERT INTO studypartner_study_list (title, kind, area, school, contact, info) VALUES ('$title', '$kind', '$area', '$school', '$contact', '$info')";
+    $query = "INSERT INTO studypartner_study_list (title, kind, area, school, contact, info, cnt) VALUES ('$title', '$kind', '$area', '$school', '$contact', '$info', '1')";
     $res = mysqli_query($conn, $query);
     if ($res) {
     }

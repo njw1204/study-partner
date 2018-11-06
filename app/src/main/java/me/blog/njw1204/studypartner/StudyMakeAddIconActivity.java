@@ -63,7 +63,6 @@ public class StudyMakeAddIconActivity extends AppCompatActivity {
         bLoad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 사진 선택을 위해 갤러리를 호출한다
                 Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 intent.setType("image/*");
                 startActivityForResult(intent, REQ_CODE_SELECT_IMAGE);
@@ -93,19 +92,6 @@ public class StudyMakeAddIconActivity extends AppCompatActivity {
     private void putPicture(Uri imgUri) {
         realPath = getRealPathFromURI(imgUri);
         application.setAddIconUrl(realPath);
-        /*
-        ExifInterface exif = null;
-        try {
-            exif = new ExifInterface(realPath);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        int exifOrientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
-        int exifDegree = exifOrientationToDegrees(exifOrientation);
-        Bitmap bitmap = rotate(BitmapFactory.decodeFile(realPath), exifDegree); // 경로를 통해 비트맵으로 전환
-        iIcon.setImageBitmap(bitmap); // 이미지 뷰에 비트맵 넣기
-        iCover.setImageBitmap(bitmap); // 이미지 뷰에 비트맵 넣기
-        */
 
         RequestOptions options = new RequestOptions()
                                      .centerCrop();
@@ -117,24 +103,6 @@ public class StudyMakeAddIconActivity extends AppCompatActivity {
             .load(new File(realPath))
             .apply(options)
             .into(iCover);
-    }
-
-    private int exifOrientationToDegrees(int exifOrientation) {
-        if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_90) {
-            return 90;
-        } else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_180) {
-            return 180;
-        } else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_270) {
-            return 270;
-        }
-        return 0;
-    }
-
-    private Bitmap rotate(Bitmap src, float degree) {
-        Matrix matrix = new Matrix();
-        matrix.postRotate(degree);
-        return Bitmap.createBitmap(src, 0, 0, src.getWidth(),
-            src.getHeight(), matrix, true);
     }
 
     private String getRealPathFromURI(Uri contentUri) {

@@ -1,6 +1,7 @@
 package me.blog.njw1204.studypartner;
 
 import android.app.Application;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
@@ -16,6 +17,8 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Locale;
 
 import butterknife.BindString;
@@ -23,6 +26,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnTextChanged;
+import okhttp3.Callback;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Response;
 
 public class StudyMakeActivity extends AppCompatActivity {
     @BindView(R.id.edittext_set_title) EditText eTitle;
@@ -156,8 +166,12 @@ public class StudyMakeActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case android.R.id.home:
-                finish();
+                Intent login = new Intent(getApplicationContext(), MainActivity.class);
+                login.putExtra("id", getIntent().getStringExtra("id"));
+                login.putExtra("pw", getIntent().getStringExtra("pw"));
+                startActivity(login);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                finish();
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -165,11 +179,134 @@ public class StudyMakeActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        Intent login = new Intent(getApplicationContext(), MainActivity.class);
+        login.putExtra("id", getIntent().getStringExtra("id"));
+        login.putExtra("pw", getIntent().getStringExtra("pw"));
+        startActivity(login);
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        finish();
     }
 
     private void FetchStudyMakeAPI() {
+        final Intent intent = getIntent();
+        final StudyItemAPI api = StudyItemAPI.retrofit.create(StudyItemAPI.class);
+        final ProgressDialog pd = CUtils.showProgress(this, "로딩 중...", false);
 
+        Call<ResponseBody> http = api.postStudyMake(
+            intent.getStringExtra("id"),
+            intent.getStringExtra("pw"),
+            eTitle.getText().toString(),
+            tKind.getText().toString(),
+            tArea.getText().toString(),
+            (rYes.isChecked() ? "T" : "F"),
+            eContact.getText().toString(),
+            eInfo.getText().toString()
+        );
+
+        http.enqueue(new retrofit2.Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.code() >= 400) {
+                    onFailure(call, new Throwable(response.message()));
+                    return;
+                }
+                String result;
+                try {
+                    result = response.body().string();
+                    if (!result.equals("OK")) {
+                        onFailure(call, new Throwable(result));
+                        return;
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    onFailure(call, new Throwable(e.getMessage()));
+                    return;
+                }
+
+                if (!CUtils.IsEmpty(application.getAddIconUrl())) {
+                    File file = new File(application.getAddIconUrl());
+                    MultipartBody.Part filePart = MultipartBody.Part.createFormData(
+                        "file", file.getName(), RequestBody.create(MediaType.parse("image/*"), file)
+                    );
+                    Call<ResponseBody> http = api.postIcon(
+                        RequestBody.create(MediaType.parse("multipart/form-data"), intent.getStringExtra("id")),
+                        RequestBody.create(MediaType.parse("multipart/form-data"), intent.getStringExtra("pw")),
+                        RequestBody.create(MediaType.parse("multipart/form-data"), eTitle.getText().toString()),
+                        filePart
+                    );
+
+                    http.enqueue(new retrofit2.Callback<ResponseBody>() {
+                        @Override
+                        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                            if (response.code() >= 400) {
+                                onFailure(call, new Throwable(response.message()));
+                                return;
+                            }
+                            String result;
+                            try {
+                                result = response.body().string();
+                                if (!result.equals("OK")) {
+                                    onFailure(call, new Throwable(result));
+                                    return;
+                                }
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                                onFailure(call, new Throwable(e.getMessage()));
+                                return;
+                            }
+
+                            CUtils.hideProgress(pd);
+                            Toast.makeText(getApplicationContext(), "성공적으로 등록했습니다.", Toast.LENGTH_LONG).show();
+
+                            Intent login = new Intent(getApplicationContext(), MainActivity.class);
+                            login.putExtra("id", getIntent().getStringExtra("id"));
+                            login.putExtra("pw", getIntent().getStringExtra("pw"));
+                            startActivity(login);
+                            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                            finish();
+                        }
+
+                        @Override
+                        public void onFailure(Call<ResponseBody> call, Throwable t) {
+                            CUtils.hideProgress(pd);
+                            Toast.makeText(getApplicationContext(), "사진을 제외하고 성공적으로 등록했습니다.", Toast.LENGTH_LONG).show();
+
+                            Intent login = new Intent(getApplicationContext(), MainActivity.class);
+                            login.putExtra("id", getIntent().getStringExtra("id"));
+                            login.putExtra("pw", getIntent().getStringExtra("pw"));
+                            startActivity(login);
+                            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                            finish();
+                        }
+                    });
+                }
+                else {
+                    CUtils.hideProgress(pd);
+                    Toast.makeText(getApplicationContext(), "성공적으로 등록했습니다.", Toast.LENGTH_LONG).show();
+
+                    Intent login = new Intent(getApplicationContext(), MainActivity.class);
+                    login.putExtra("id", getIntent().getStringExtra("id"));
+                    login.putExtra("pw", getIntent().getStringExtra("pw"));
+                    startActivity(login);
+                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                    finish();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                CUtils.hideProgress(pd);
+
+                if (t.getMessage().equals("already")) {
+                    CUtils.SimpleDialogShow(StudyMakeActivity.this, "이미 존재하는 스터디명입니다.", true);
+                }
+                else if (t.getMessage().equals("no school")) {
+                    CUtils.SimpleDialogShow(StudyMakeActivity.this, "프로필의 학교 정보가 비어있어 [우리 학교만] 옵션을 사용할 수 없습니다.", true);
+                }
+                else {
+                    CUtils.SimpleDialogShow(StudyMakeActivity.this, "스터디 등록에 실패했습니다.", true);
+                }
+            }
+        });
     }
 }

@@ -49,7 +49,7 @@ public class StudyRecyclerAdapter extends RecyclerView.Adapter<StudyRecyclerAdap
         studyItemViewHolder.cnt.setText(String.format(Locale.KOREA, "%d명", item.getCnt()));
         RequestOptions options = new RequestOptions()
                                      .centerCrop()
-                                     .placeholder(R.drawable.book)
+                                     .placeholder(R.color.bottom_navi_color)
                                      .error(R.drawable.book);
         requestManager.load(item.getIcon()).apply(options).into(studyItemViewHolder.icon);
     }

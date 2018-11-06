@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("pw", getIntent().getStringExtra("pw"));
                 startActivity(intent);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                finish();
             }
         });
     }
