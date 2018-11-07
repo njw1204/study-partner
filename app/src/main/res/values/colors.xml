@@ -13,4 +13,5 @@
     <color name="transparent">#00000000</color>
     <color name="m_grey_200">#eeeeee</color>
     <color name="bottom_navi_color">#d8d8d8</color>
+    <color name="calendarselect">#ffcc80</color>
 </resources>

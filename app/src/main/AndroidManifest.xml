@@ -51,13 +51,17 @@
         <activity
             android:name=".StudyMakeAddIconActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".StudyMainActivity"
+        <activity
+            android:name=".StudyMainActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".StudyChatActivity"
+        <activity
+            android:name=".StudyChatActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity android:name=".StudyPlanActivity"
+        <activity
+            android:name=".StudyPlanActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".AddScheduleActivity"></activity>
     </application>
 
 </manifest>

@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:showWeekNumber="true"
-        app:mcv_selectionColor="@color/colorAccent" >
+        app:mcv_selectionColor="@color/calendarselect">
 
     </com.prolificinteractive.materialcalendarview.MaterialCalendarView>
 
@@ -20,7 +20,7 @@
         android:id="@+id/schedule_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/calendarView" >
+        android:layout_below="@+id/textView14">
 
     </ListView>
 
@@ -35,5 +35,14 @@
         android:clickable="true"
         app:backgroundTint="@color/design_default_color_primary"
         app:srcCompat="@android:drawable/ic_input_add" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/calendarView"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:text="예정된 일정" />
 
 </RelativeLayout>
