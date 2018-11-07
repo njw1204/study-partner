@@ -37,6 +37,8 @@ public class BottomNavi {
                         intent = new Intent(activity, MyStudyActivity.class);
                         intent.putExtra("id", activity.getIntent().getStringExtra("id"));
                         intent.putExtra("pw", activity.getIntent().getStringExtra("pw"));
+                        intent.putExtra("my_school", activity.getIntent().getStringExtra("my_school"));
+                        intent.putExtra("my_nick", activity.getIntent().getStringExtra("my_nick"));
                         activity.startActivity(intent);
                         activity.overridePendingTransition(0, 0);
                         activity.finish();
@@ -45,6 +47,8 @@ public class BottomNavi {
                         intent = new Intent(activity, MainActivity.class);
                         intent.putExtra("id", activity.getIntent().getStringExtra("id"));
                         intent.putExtra("pw", activity.getIntent().getStringExtra("pw"));
+                        intent.putExtra("my_school", activity.getIntent().getStringExtra("my_school"));
+                        intent.putExtra("my_nick", activity.getIntent().getStringExtra("my_nick"));
                         activity.startActivity(intent);
                         activity.overridePendingTransition(0, 0);
                         activity.finish();
@@ -53,6 +57,8 @@ public class BottomNavi {
                         intent = new Intent(activity, SettingActivity.class);
                         intent.putExtra("id", activity.getIntent().getStringExtra("id"));
                         intent.putExtra("pw", activity.getIntent().getStringExtra("pw"));
+                        intent.putExtra("my_school", activity.getIntent().getStringExtra("my_school"));
+                        intent.putExtra("my_nick", activity.getIntent().getStringExtra("my_nick"));
                         activity.startActivity(intent);
                         activity.overridePendingTransition(0, 0);
                         activity.finish();
@@ -68,7 +74,7 @@ public class BottomNavi {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Intent intent, origin = activity.getIntent();
-                String keys[] = {"id", "pw", "title", "kind", "school", "area", "icon"};
+                String keys[] = {"id", "pw", "my_school", "my_nick", "title", "kind", "school", "area", "icon"};
                 switch (item.getItemId()) {
                     case R.id.navi_study_info:
                         intent = new Intent(activity, StudyInfoActivity.class);

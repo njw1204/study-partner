@@ -13,7 +13,6 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="10dp"
         android:paddingLeft="4dp"
-        android:text="Nickname"
         android:textColor="@color/m_grey_900" />
 
     <TextView
@@ -21,14 +20,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/nick_chatmessage"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="false"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/chat_my_border"
+        android:layout_marginRight="100dp"
+        android:background="@drawable/chat_border"
         android:paddingLeft="8dp"
         android:paddingTop="5dp"
         android:paddingRight="8dp"
         android:paddingBottom="5dp"
-        android:text="testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest"
         android:textColor="@android:color/black"
         android:textSize="16sp" />
+
 </RelativeLayout>

@@ -6,15 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".StudyChatActivity">
 
-    <ListView
-        android:id="@+id/listView1"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview_chat"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/send_Framelayout"
-        android:layout_marginBottom="3dp"
-        android:divider="#ffffff"
-        android:dividerHeight="0dp"
-        android:transcriptMode="alwaysScroll" />
+        android:layout_marginBottom="3dp" />
 
     <FrameLayout
         android:id="@+id/send_Framelayout"
@@ -35,6 +32,7 @@
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_toLeftOf="@+id/button_send"
+                android:clickable="true"
                 android:ems="10"
                 android:inputType="textPersonName" />
 
@@ -43,9 +41,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="3dp"
                 android:layout_marginTop="2dp"
-                android:layout_marginRight="5dp"
+                android:layout_marginRight="3dp"
                 android:layout_marginBottom="2dp"
                 android:text="전송" />
         </RelativeLayout>

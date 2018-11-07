@@ -161,8 +161,22 @@ public class SettingActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent license = new Intent(getApplicationContext(), StudyChatActivity.class);
                 license.putExtra("userid", intent.getStringExtra("id"));
+                license.putExtra("nick", intent.getStringExtra("my_nick"));
                 license.putExtra("chatname", "test_license");
                 startActivity(license);
+            }
+        });
+        findViewById(R.id.button_logout).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TinyDB tinyDB = new TinyDB(SettingActivity.this);
+                tinyDB.putBoolean("auto_login", false);
+                tinyDB.remove("auto_id");
+                tinyDB.remove("auto_pw");
+                Intent intent = new Intent(SettingActivity.this, LoginActivity.class);
+                startActivity(intent);
+                Toast.makeText(getApplicationContext(), "로그아웃 되었습니다.", Toast.LENGTH_LONG).show();
+                finish();
             }
         });
     }
@@ -175,6 +189,7 @@ public class SettingActivity extends AppCompatActivity {
         라이센스 5 : TinyDB
         라이센스 6 : wasabeef/recyclerview-animators
         라이센스 7 : JakeWharton/butterknife
+        라이센스 8 : firebase/firebase-android-sdk
      */
 
     void popupedit(int type) {

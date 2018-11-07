@@ -169,6 +169,8 @@ public class StudyMakeActivity extends AppCompatActivity {
                 Intent login = new Intent(getApplicationContext(), MainActivity.class);
                 login.putExtra("id", getIntent().getStringExtra("id"));
                 login.putExtra("pw", getIntent().getStringExtra("pw"));
+                login.putExtra("my_nick", getIntent().getStringExtra("my_nick"));
+                login.putExtra("my_school", getIntent().getStringExtra("my_school"));
                 startActivity(login);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 finish();
@@ -182,6 +184,8 @@ public class StudyMakeActivity extends AppCompatActivity {
         Intent login = new Intent(getApplicationContext(), MainActivity.class);
         login.putExtra("id", getIntent().getStringExtra("id"));
         login.putExtra("pw", getIntent().getStringExtra("pw"));
+        login.putExtra("my_nick", getIntent().getStringExtra("my_nick"));
+        login.putExtra("my_school", getIntent().getStringExtra("my_school"));
         startActivity(login);
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         finish();
@@ -261,6 +265,8 @@ public class StudyMakeActivity extends AppCompatActivity {
                             Intent login = new Intent(getApplicationContext(), MainActivity.class);
                             login.putExtra("id", getIntent().getStringExtra("id"));
                             login.putExtra("pw", getIntent().getStringExtra("pw"));
+                            login.putExtra("my_nick", getIntent().getStringExtra("my_nick"));
+                            login.putExtra("my_school", getIntent().getStringExtra("my_school"));
                             startActivity(login);
                             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                             finish();
@@ -274,6 +280,8 @@ public class StudyMakeActivity extends AppCompatActivity {
                             Intent login = new Intent(getApplicationContext(), MainActivity.class);
                             login.putExtra("id", getIntent().getStringExtra("id"));
                             login.putExtra("pw", getIntent().getStringExtra("pw"));
+                            login.putExtra("my_nick", getIntent().getStringExtra("my_nick"));
+                            login.putExtra("my_school", getIntent().getStringExtra("my_school"));
                             startActivity(login);
                             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                             finish();
@@ -287,6 +295,8 @@ public class StudyMakeActivity extends AppCompatActivity {
                     Intent login = new Intent(getApplicationContext(), MainActivity.class);
                     login.putExtra("id", getIntent().getStringExtra("id"));
                     login.putExtra("pw", getIntent().getStringExtra("pw"));
+                    login.putExtra("my_nick", getIntent().getStringExtra("my_nick"));
+                    login.putExtra("my_school", getIntent().getStringExtra("my_school"));
                     startActivity(login);
                     overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                     finish();

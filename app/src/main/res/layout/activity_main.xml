@@ -55,6 +55,7 @@
         android:scaleX="1.2"
         android:scaleY="1.2"
         android:tint="@android:color/background_light"
+        android:visibility="gone"
         app:backgroundTint="@color/design_default_color_primary"
         app:elevation="3dp"
         app:srcCompat="@drawable/baseline_add_black_48" />
