@@ -135,6 +135,19 @@ public class MyStudyActivity extends AppCompatActivity {
         recyclerView.addOnItemTouchListener(new StudyItemEventListener(this, new StudyItemEventListener.ClickEvents() {
             @Override
             public void onItemSingleTapUp(View view, int position) {
+                Intent intent = new Intent(MyStudyActivity.this, StudyMainActivity.class);
+                intent.putExtra("id", MyStudyActivity.this.getIntent().getStringExtra("id"));
+                intent.putExtra("pw", MyStudyActivity.this.getIntent().getStringExtra("pw"));
+                intent.putExtra("my_school", MyStudyActivity.this.getIntent().getStringExtra("my_school"));
+                intent.putExtra("my_nick", MyStudyActivity.this.getIntent().getStringExtra("my_nick"));
+                intent.putExtra("title", items.get(position).getTitle());
+                intent.putExtra("kind", items.get(position).getKind());
+                intent.putExtra("school", items.get(position).getSchool());
+                intent.putExtra("area", items.get(position).getArea());
+                intent.putExtra("study_no", items.get(position).getStudy_no());
+                intent.putExtra("icon", items.get(position).getIcon());
+                intent.putExtra("show_icon", !CUtils.IsPseudoEmpty(items.get(position).getIcon()));
+                startActivity(intent);
             }
         }));
     }

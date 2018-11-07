@@ -7,7 +7,9 @@ public class ChatDTO {
     private String message;
 
     public ChatDTO () {
-
+        userId = "";
+        userNick = "";
+        message = "";
     }
 
     public ChatDTO(String userId, String userNick, String message) {

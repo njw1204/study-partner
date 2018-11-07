@@ -190,6 +190,7 @@ public class SettingActivity extends AppCompatActivity {
         라이센스 6 : wasabeef/recyclerview-animators
         라이센스 7 : JakeWharton/butterknife
         라이센스 8 : firebase/firebase-android-sdk
+        라이센스 9 : materialCalendarView
      */
 
     void popupedit(int type) {

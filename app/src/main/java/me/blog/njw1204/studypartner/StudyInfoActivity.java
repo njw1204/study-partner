@@ -32,7 +32,13 @@ public class StudyInfoActivity extends AppCompatActivity {
         Intent intent = getIntent();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_study_info);
-        BottomNavi.LetStudyNaviClickListener(this, (BottomNavigationView)findViewById(R.id.bottomnavi_study_info));
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomnavi_study_info);
+        BottomNavi.LetStudyNaviClickListener(this, bottomNavigationView);
+
+        if (getIntent().getBooleanExtra("hide_navi", false)) {
+            bottomNavigationView.setVisibility(View.GONE);
+        }
 
         getSupportActionBar().setTitle(intent.getStringExtra("title"));
         ((TextView)findViewById(R.id.Name_info)).setText(intent.getStringExtra("title"));

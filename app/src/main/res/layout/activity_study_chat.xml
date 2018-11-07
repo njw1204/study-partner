@@ -49,4 +49,15 @@
         </RelativeLayout>
     </FrameLayout>
 
+
+
+    <TextView
+        android:id="@+id/textview_not_chat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:text="대화 내용이 없습니다."
+        android:textSize="20dp" />
+
 </RelativeLayout>

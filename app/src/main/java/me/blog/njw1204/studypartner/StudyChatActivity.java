@@ -62,7 +62,7 @@ public class StudyChatActivity extends AppCompatActivity {
 
         chat_edit = findViewById(R.id.editText_send);
         chat_send = findViewById(R.id.button_send);
-        pd = CUtils.showProgress(this, "로딩 중...", false);
+        // pd = CUtils.showProgress(this, "로딩 중...", false);
 
         openChat(CHAT_NAME);
 
@@ -88,7 +88,7 @@ public class StudyChatActivity extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 addMessage(dataSnapshot);
-                CUtils.hideProgress(pd);
+                findViewById(R.id.textview_not_chat).setVisibility(View.GONE);
                 pd = null;
             }
 

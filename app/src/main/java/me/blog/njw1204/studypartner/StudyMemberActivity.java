@@ -6,6 +6,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -37,6 +38,10 @@ public class StudyMemberActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomnavi_study_member);
         bottomNavigationView.setSelectedItemId(R.id.navi_study_member);
         BottomNavi.LetStudyNaviClickListener(this, bottomNavigationView);
+
+        if (getIntent().getBooleanExtra("hide_navi", false)) {
+            bottomNavigationView.setVisibility(View.GONE);
+        }
 
         listView = findViewById(R.id.listview_member_list);
 

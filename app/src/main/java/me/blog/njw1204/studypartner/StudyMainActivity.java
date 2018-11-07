@@ -20,8 +20,15 @@ public class StudyMainActivity extends AppCompatActivity {
         findViewById(R.id.layout_Info).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent infoIntent = new Intent(getApplicationContext(), StudyInfoActivity.class);
-                startActivity(infoIntent);
+                Intent intent = new Intent(StudyMainActivity.this, StudyInfoActivity.class);
+                String keys[] = {"id", "pw", "my_school", "my_nick", "title", "kind", "school", "area", "icon"};
+                for (String i : keys) {
+                    CUtils.SendStringExtra(i, intent, getIntent());
+                }
+                CUtils.SendIntExtra("study_no", intent, getIntent(), 0);
+                CUtils.SendBooleanExtra("show_icon", intent, getIntent(), false);
+                intent.putExtra("hide_navi", true);
+                startActivity(intent);
             }
         });
         findViewById(R.id.layout_Notice).setOnClickListener(new View.OnClickListener() {
@@ -34,15 +41,29 @@ public class StudyMainActivity extends AppCompatActivity {
         findViewById(R.id.layout_Member).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent memberIntent = new Intent(getApplicationContext(), StudyMemberActivity.class);
-                startActivity(memberIntent);
+                Intent intent = new Intent(StudyMainActivity.this, StudyMemberActivity.class);
+                String keys[] = {"id", "pw", "my_school", "my_nick", "title", "kind", "school", "area", "icon"};
+                for (String i : keys) {
+                    CUtils.SendStringExtra(i, intent, getIntent());
+                }
+                CUtils.SendIntExtra("study_no", intent, getIntent(), 0);
+                CUtils.SendBooleanExtra("show_icon", intent, getIntent(), false);
+                intent.putExtra("hide_navi", true);
+                startActivity(intent);
             }
         });
         findViewById(R.id.layout_Plan).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent planIntent = new Intent(getApplicationContext(), StudyPlanActivity.class);
-                //startActivity(planIntent);
+                Intent intent = new Intent(StudyMainActivity.this, StudyPlanActivity.class);
+                String keys[] = {"id", "pw", "my_school", "my_nick", "title", "kind", "school", "area", "icon"};
+                for (String i : keys) {
+                    CUtils.SendStringExtra(i, intent, getIntent());
+                }
+                CUtils.SendIntExtra("study_no", intent, getIntent(), 0);
+                CUtils.SendBooleanExtra("show_icon", intent, getIntent(), false);
+                intent.putExtra("hide_navi", true);
+                startActivity(intent);
             }
         });
         findViewById(R.id.layout_Chat).setOnClickListener(new View.OnClickListener() {
@@ -50,6 +71,7 @@ public class StudyMainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent chatIntent = new Intent(getApplicationContext(), StudyChatActivity.class);
                 chatIntent.putExtra("userid", intent.getStringExtra("id"));
+                chatIntent.putExtra("nick", intent.getStringExtra("my_nick"));
                 chatIntent.putExtra("chatname", intent.getStringExtra("title"));
                 startActivity(chatIntent);
             }

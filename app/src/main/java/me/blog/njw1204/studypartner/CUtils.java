@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.view.WindowManager;
@@ -99,5 +100,17 @@ public class CUtils {
                 }
             }
         }, 160);
+    }
+
+    public static void SendStringExtra(String key, Intent to, Intent from) {
+        to.putExtra(key, from.getStringExtra(key));
+    }
+
+    public static void SendIntExtra(String key, Intent to, Intent from, int defaultValue) {
+        to.putExtra(key, from.getIntExtra(key, defaultValue));
+    }
+
+    public static void SendBooleanExtra(String key, Intent to, Intent from, boolean defaultValue) {
+        to.putExtra(key, from.getBooleanExtra(key, defaultValue));
     }
 }
