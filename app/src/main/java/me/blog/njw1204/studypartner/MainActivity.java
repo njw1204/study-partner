@@ -45,10 +45,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().setTitle("스터디 찾기");
 
         application = (StudyPartner)getApplication();
         items = application.getStudyListItems();
-        fas = Typeface.createFromAsset(getAssets(), "fa_solid_900.ttf");
+        fas = ((StudyPartner) getApplication()).fas;
 
         AppFirstInstall();
         applyFontAwesome();

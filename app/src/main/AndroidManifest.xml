@@ -3,6 +3,7 @@
     package="me.blog.njw1204.studypartner">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
@@ -62,6 +63,9 @@
             android:name=".StudyPlanActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".AddScheduleActivity"></activity>
+        <activity android:name=".StaffActivity" />
+        <activity android:name=".ApplyListActivity" />
+        <activity android:name=".EditUserActivity"></activity>
     </application>
 
 </manifest>

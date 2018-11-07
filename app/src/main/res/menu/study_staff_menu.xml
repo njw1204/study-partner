@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/navi_study_nick_change"
+        app:actionLayout="@layout/nick_change_menu"
+        android:title="프로필 메시지 변경"
+        app:showAsAction="ifRoom" />
+    <item android:id="@+id/navi_study_staff"
+        app:actionLayout="@layout/staff_menu"
+        android:title="관리자 페이지"
+        app:showAsAction="ifRoom" />
+</menu>

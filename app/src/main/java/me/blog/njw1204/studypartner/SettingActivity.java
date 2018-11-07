@@ -9,6 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -36,6 +39,7 @@ public class SettingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
+        getSupportActionBar().setTitle("설정");
 
         RestorePushChecked();
         FetchUserInfoAPI();
@@ -45,6 +49,46 @@ public class SettingActivity extends AppCompatActivity {
         BottomNavi.LetNaviClickListener(this, bottomNavigationView);
 
         LetClickListener();
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.study_add_menu, menu);
+        final MenuItem item = menu.findItem(R.id.navi_study_add);
+        item.getActionView().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SettingActivity.this, StudyMakeActivity.class);
+                intent.putExtra("id", getIntent().getStringExtra("id"));
+                intent.putExtra("pw", getIntent().getStringExtra("pw"));
+                intent.putExtra("my_school", getIntent().getStringExtra("my_school"));
+                intent.putExtra("my_nick", getIntent().getStringExtra("my_nick"));
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                finish();
+            }
+        });
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.navi_study_add:
+                Intent intent = new Intent(SettingActivity.this, StudyMakeActivity.class);
+                intent.putExtra("id", getIntent().getStringExtra("id"));
+                intent.putExtra("pw", getIntent().getStringExtra("pw"));
+                intent.putExtra("my_school", getIntent().getStringExtra("my_school"));
+                intent.putExtra("my_nick", getIntent().getStringExtra("my_nick"));
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                finish();
+                return true;
+            default:
+                return false;
+        }
     }
 
     @Override

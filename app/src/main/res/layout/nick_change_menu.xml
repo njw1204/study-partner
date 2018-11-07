@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/action_button_Nick"
+    style="@style/Widget.AppCompat.ActionButton"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_green_dark"
+    android:clickable="true">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:gravity="center"
+        android:text="프로필\n메시지"
+        android:textColor="@color/m_grey_900"
+        android:textSize="14dp"
+        android:textStyle="bold" />
+</LinearLayout>

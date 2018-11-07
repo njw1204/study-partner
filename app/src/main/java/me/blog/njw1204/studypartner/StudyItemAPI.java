@@ -29,6 +29,9 @@ public interface StudyItemAPI {
     @GET("studypartner/user-study.php")
     Call<ResponseBody> getUserStudy(@Query("id") String id);
 
+    @GET("studypartner/study-check-staff.php")
+    Call<ResponseBody> getStudyCheckStaff(@Query("id") String id, @Query("study_no") int study_no);
+
     @FormUrlEncoded
     @POST("studypartner/study-make.php")  // 아이콘 추가 구현
     Call<ResponseBody> postStudyMake(@Field("id") String id, @Field("pw") String pw, @Field("title") String title,
@@ -51,6 +54,27 @@ public interface StudyItemAPI {
     @FormUrlEncoded
     @POST("studypartner/signup.php")
     Call<ResponseBody> Signup(@Field("id") String id, @Field("pw") String pw, @Field("school") String school, @Field("nick") String nick);
+
+    @FormUrlEncoded
+    @POST("studypartner/study-apply-answer.php")
+    Call<ResponseBody> postStudyApplyAnswer(@Field("id") String id, @Field("pw") String pw, @Field("study_no") int study_no,
+                                            @Field("apply_id") String apply_id, @Field("accept") String accept);
+
+    @FormUrlEncoded
+    @POST("studypartner/study-apply-list.php")
+    Call<ResponseBody> postStudyApplyList(@Field("id") String id, @Field("pw") String pw, @Field("study_no") int study_no);
+
+    @FormUrlEncoded
+    @POST("studypartner/study-assign-staff.php")
+    Call<ResponseBody> postStudyAssignStaff(@Field("id") String id, @Field("pw") String pw, @Field("study_no") int study_no, @Field("apply_id") String apply_id);
+
+    @FormUrlEncoded
+    @POST("studypartner/study-change-msg.php")
+    Call<ResponseBody> postStudyChangeMsg(@Field("id") String id, @Field("pw") String pw, @Field("study_no") int study_no, @Field("msg") String msg);
+
+    @FormUrlEncoded
+    @POST("studypartner/study-kick-member.php")
+    Call<ResponseBody> postStudyKickMember(@Field("id") String id, @Field("pw") String pw, @Field("study_no") int study_no, @Field("apply_id") String apply_id);
 
     Retrofit retrofit = new Retrofit.Builder()
                             .baseUrl("http://apk.dothome.co.kr/")

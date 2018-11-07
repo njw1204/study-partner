@@ -9,6 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,6 +40,7 @@ public class MyStudyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_study);
+        getSupportActionBar().setTitle("나의 스터디");
 
         application = (StudyPartner)getApplication();
         items = application.getStudyListItems();
@@ -47,6 +51,45 @@ public class MyStudyActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomnavigationview_mystudy);
         bottomNavigationView.setSelectedItemId(R.id.navi_my_study);
         BottomNavi.LetNaviClickListener(this, bottomNavigationView);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.study_add_menu, menu);
+        final MenuItem item = menu.findItem(R.id.navi_study_add);
+        item.getActionView().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MyStudyActivity.this, StudyMakeActivity.class);
+                intent.putExtra("id", getIntent().getStringExtra("id"));
+                intent.putExtra("pw", getIntent().getStringExtra("pw"));
+                intent.putExtra("my_school", getIntent().getStringExtra("my_school"));
+                intent.putExtra("my_nick", getIntent().getStringExtra("my_nick"));
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                finish();
+            }
+        });
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.navi_study_add:
+                Intent intent = new Intent(MyStudyActivity.this, StudyMakeActivity.class);
+                intent.putExtra("id", getIntent().getStringExtra("id"));
+                intent.putExtra("pw", getIntent().getStringExtra("pw"));
+                intent.putExtra("my_school", getIntent().getStringExtra("my_school"));
+                intent.putExtra("my_nick", getIntent().getStringExtra("my_nick"));
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                finish();
+                return true;
+            default:
+                return false;
+        }
     }
 
     @Override

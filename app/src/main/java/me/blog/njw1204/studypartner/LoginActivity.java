@@ -1,7 +1,11 @@
 package me.blog.njw1204.studypartner;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -28,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         getSupportActionBar().hide();
+
         ((EditText)findViewById(R.id.PW)).setOnEditorActionListener(new EditText.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -38,6 +43,15 @@ public class LoginActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        ConnectivityManager manager = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo mobile = manager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+        NetworkInfo wifi = manager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+
+        // wifi 또는 모바일 네트워크 어느 하나라도 연결이 되어있다면,
+        if (!wifi.isConnected() && !mobile.isConnected()) {
+            CUtils.SimpleDialogShow(this, "스터디파트너를 이용하기위해 네트워크 연결을 켜주세요.", true);
+        }
 
         TinyDB tinyDB = new TinyDB(getApplicationContext());
         if (tinyDB.getBoolean("auto_login")) {

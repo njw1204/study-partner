@@ -13,138 +13,155 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="0dp"
-        android:scaleType="fitXY"
-        app:srcCompat="@android:drawable/sym_def_app_icon" />
+        app:srcCompat="@color/bottom_navi_color" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/studyImage">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <RelativeLayout
                 android:id="@+id/layout_Info"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_alignParentTop="true"
-                android:clickable="true">
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
 
                 <ImageView
                     android:id="@+id/info"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_margin="10dp"
+                    android:layout_alignParentTop="false"
+                    android:layout_centerInParent="false"
+                    android:layout_centerHorizontal="false"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     app:srcCompat="@drawable/baseline_info_black_48" />
 
                 <TextView
                     android:id="@+id/studyInfoText"
                     android:layout_width="match_parent"
-                    android:layout_height="49dp"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentLeft="false"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="false"
+                    android:layout_alignParentRight="false"
+                    android:layout_centerVertical="true"
                     android:layout_toRightOf="@+id/info"
                     android:background="#00ffffff"
-                    android:foregroundGravity="left|center"
-                    android:gravity="left|center_vertical"
                     android:text="정보"
-                    android:textColor="#424242" />
+                    android:textColor="#424242"
+                    android:textSize="20dp" />
 
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_below="@+id/studyInfoText"
-                    android:background="#424242">
-
-                </FrameLayout>
             </RelativeLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#424242">
+
+            </FrameLayout>
 
             <RelativeLayout
                 android:id="@+id/layout_Notice"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_below="@+id/layout_Info"
-                android:clickable="true">
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
 
                 <ImageView
                     android:id="@+id/notice"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_margin="10dp"
+                    android:layout_alignParentTop="false"
+                    android:layout_centerHorizontal="false"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     app:srcCompat="@drawable/baseline_notification_important_black_48" />
 
                 <TextView
                     android:id="@+id/studyNoticeText"
                     android:layout_width="match_parent"
-                    android:layout_height="49dp"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentLeft="false"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="false"
+                    android:layout_alignParentRight="false"
+                    android:layout_centerVertical="true"
                     android:layout_toRightOf="@+id/notice"
                     android:background="#00ffffff"
-                    android:gravity="left|center_vertical"
                     android:text="공지"
-                    android:textColor="#424242" />
+                    android:textColor="#424242"
+                    android:textSize="20dp" />
 
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_below="@+id/studyNoticeText"
-                    android:background="#424242">
-
-                </FrameLayout>
             </RelativeLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/studyNoticeText"
+                android:background="#424242">
+
+            </FrameLayout>
 
             <RelativeLayout
                 android:id="@+id/layout_Member"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_below="@+id/layout_Notice"
-                android:clickable="true">
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
 
                 <ImageView
                     android:id="@+id/member"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_margin="10dp"
+                    android:layout_alignParentTop="false"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     app:srcCompat="@drawable/baseline_people_black_48" />
 
                 <TextView
                     android:id="@+id/studyMemberText"
                     android:layout_width="match_parent"
-                    android:layout_height="49dp"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentLeft="false"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="false"
+                    android:layout_alignParentRight="false"
+                    android:layout_centerVertical="true"
                     android:layout_toRightOf="@+id/member"
                     android:background="#00ffffff"
-                    android:gravity="left|center_vertical"
                     android:text="멤버"
-                    android:textColor="#424242" />
+                    android:textColor="#424242"
+                    android:textSize="20dp" />
 
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_below="@+id/studyMemberText"
-                    android:background="#424242">
-
-                </FrameLayout>
             </RelativeLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/studyMemberText"
+                android:background="#424242">
+
+            </FrameLayout>
 
             <RelativeLayout
                 android:id="@+id/layout_Plan"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_below="@+id/layout_Member"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:clickable="true">
 
                 <ImageView
@@ -152,101 +169,76 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_margin="10dp"
+                    android:layout_alignParentTop="false"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     app:srcCompat="@drawable/baseline_calendar_today_black_48dp" />
 
                 <TextView
                     android:id="@+id/studyPlanText"
                     android:layout_width="match_parent"
-                    android:layout_height="49dp"
-                    android:layout_alignParentLeft="false"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:layout_toRightOf="@+id/plan"
                     android:background="#00ffffff"
-                    android:gravity="left|center_vertical"
                     android:text="일정"
-                    android:textColor="#424242" />
+                    android:textColor="#424242"
+                    android:textSize="20dp" />
 
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_below="@+id/studyPlanText"
-                    android:background="#424242">
-
-                </FrameLayout>
             </RelativeLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/studyPlanText"
+                android:background="#424242">
+
+            </FrameLayout>
 
             <RelativeLayout
                 android:id="@+id/layout_Chat"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_below="@+id/layout_Plan"
-                android:clickable="true">
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
 
                 <ImageView
                     android:id="@+id/chat"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_margin="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     app:srcCompat="@drawable/baseline_chat_black_48dp" />
 
                 <TextView
                     android:id="@+id/studyChatText"
                     android:layout_width="match_parent"
-                    android:layout_height="49dp"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentLeft="false"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="false"
+                    android:layout_alignParentRight="false"
+                    android:layout_centerVertical="true"
                     android:layout_toRightOf="@+id/chat"
                     android:background="#00ffffff"
-                    android:gravity="left|center_vertical"
                     android:text="채팅"
-                    android:textColor="#424242" />
+                    android:textColor="#424242"
+                    android:textSize="20dp" />
 
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_below="@+id/studyChatText"
-                    android:background="#424242">
-
-                </FrameLayout>
             </RelativeLayout>
 
-            <RelativeLayout
-                android:id="@+id/layout_Mail"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_below="@+id/layout_Chat"
-                android:clickable="true">
+                android:layout_height="1dp"
+                android:layout_below="@+id/studyChatText"
+                android:background="#424242">
 
-                <ImageView
-                    android:id="@+id/mail"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_margin="10dp"
-                    app:srcCompat="@drawable/baseline_email_black_48dp" />
+            </FrameLayout>
 
-                <TextView
-                    android:id="@+id/studyMailText"
-                    android:layout_width="match_parent"
-                    android:layout_height="49dp"
-                    android:layout_alignParentLeft="false"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_toRightOf="@+id/mail"
-                    android:background="#00ffffff"
-                    android:gravity="left|center_vertical"
-                    android:text="쪽지"
-                    android:textColor="#424242" />
-            </RelativeLayout>
-
-        </RelativeLayout>
+        </LinearLayout>
     </ScrollView>
 
 

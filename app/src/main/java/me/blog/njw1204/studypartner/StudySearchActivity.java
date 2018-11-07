@@ -41,7 +41,7 @@ public class StudySearchActivity extends AppCompatActivity {
         items = application.getStudyListItems();
         foundItems = new ArrayList<>();
 
-        fas = Typeface.createFromAsset(getAssets(), "fa_solid_900.ttf");
+        fas = ((StudyPartner) getApplication()).fas;
         applyFontAwesome();
 
         final StudyRecyclerAdapter adapter = new StudyRecyclerAdapter(foundItems, Glide.with(this));
