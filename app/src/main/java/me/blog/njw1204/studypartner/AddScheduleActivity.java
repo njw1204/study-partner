@@ -55,7 +55,7 @@ public class AddScheduleActivity extends AppCompatActivity {
         findViewById(R.id.ok_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), Edit_Time.getText().toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "일정이 추가되었습니다.", Toast.LENGTH_LONG).show();
                 ScheduleName = ((EditText)findViewById(R.id.newScheduleName)).getText().toString();
                 ScheduleTime =  fyear.toString() + "/" + fmonth.toString() + "/" + fday.toString() + "-"
                         + (Edit_Time.getText().toString());

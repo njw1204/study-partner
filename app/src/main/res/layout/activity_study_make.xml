@@ -224,8 +224,8 @@
             android:gravity="top"
             android:hint="스터디 설명 및 소개를 500자 이하로 써주세요. (자기소개, 공부대상, 일정, 장소, 가입조건, 목표, 회비, 사전지식, 준비물 등등)"
             android:inputType="textMultiLine"
-            android:padding="7dp"
-            android:textSize="16dp" />
+            android:padding="10dp"
+            android:textSize="18dp" />
 
         <TextView
             android:id="@+id/textview_info_cnt"

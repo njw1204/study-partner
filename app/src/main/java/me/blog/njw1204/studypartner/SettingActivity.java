@@ -196,17 +196,12 @@ public class SettingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 CUtils.SimpleDialogShow(SettingActivity.this, "현재는 데모 기간으로, 이 기능을 사용하실 수 없습니다.", true);
-                Intent plan = new Intent(getApplicationContext(), StudyPlanActivity.class);
-                startActivity(plan);
             }
         });
         findViewById(R.id.button_license).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent license = new Intent(getApplicationContext(), StudyChatActivity.class);
-                license.putExtra("userid", intent.getStringExtra("id"));
-                license.putExtra("nick", intent.getStringExtra("my_nick"));
-                license.putExtra("chatname", "test_license");
+                Intent license = new Intent(getApplicationContext(), LicenseActivity.class);
                 startActivity(license);
             }
         });
@@ -233,8 +228,7 @@ public class SettingActivity extends AppCompatActivity {
         라이센스 5 : TinyDB
         라이센스 6 : wasabeef/recyclerview-animators
         라이센스 7 : JakeWharton/butterknife
-        라이센스 8 : firebase/firebase-android-sdk
-        라이센스 9 : materialCalendarView
+        라이센스 8 : materialCalendarView
      */
 
     void popupedit(int type) {
@@ -252,7 +246,7 @@ public class SettingActivity extends AppCompatActivity {
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             //server
-                            Toast.makeText(getApplicationContext(), "관리자 승인후 변경됩니다." , Toast.LENGTH_LONG).show();
+                            CUtils.SimpleDialogShow(SettingActivity.this, "현재는 데모 기간으로, 이 기능을 사용하실 수 없습니다.", true);
                         }
                     });
             builder.setNegativeButton("취소",
@@ -283,7 +277,7 @@ public class SettingActivity extends AppCompatActivity {
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             //server
-                            Toast.makeText(getApplicationContext(), "관리자 승인후 변경됩니다." , Toast.LENGTH_LONG).show();
+                            CUtils.SimpleDialogShow(SettingActivity.this, "현재는 데모 기간으로, 이 기능을 사용하실 수 없습니다.", true);
                         }
                     });
             builder.setNegativeButton("취소",

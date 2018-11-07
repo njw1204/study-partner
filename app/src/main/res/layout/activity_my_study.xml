@@ -6,11 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".MyStudyActivity">
 
+    <TextView
+        android:id="@+id/tt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/m_blue_grey_900"
+        android:paddingLeft="8dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:text="현재 가입된 스터디 목록입니다."
+        android:textColor="@color/m_grey_100"
+        android:textSize="16dp" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview_mystudy"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/bottomnavigationview_mystudy"
+        android:layout_below="@+id/tt"
         android:layout_margin="10dp" />
 
     <android.support.design.widget.BottomNavigationView

@@ -44,12 +44,20 @@ public class StudyPlanActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_study_plan);
+        getSupportActionBar().setTitle(getIntent().getStringExtra("title"));
 
         listView = findViewById(R.id.schedule_listview);
         SimpleAdapter simpleAdapter = new
                 SimpleAdapter(this , Data, R.layout.two_items,
                 new String[]{"title","content"}, new int[]{R.id.text1, R.id.text2});
         listView.setAdapter(simpleAdapter);
+
+        findViewById(R.id.newSchedule).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "날짜를 선택해야 일정을 추가할 수 있습니다.", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         final MaterialCalendarView materialCalendarView = findViewById(R.id.calendarView);
         materialCalendarView.addDecorators(new SundayDecorator(), new SaturdayDecorator(), new OneDayDecorator());
@@ -58,7 +66,6 @@ public class StudyPlanActivity extends AppCompatActivity {
             public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
                 int year = date.getYear(), month = date.getMonth(), day = date.getDay();
                 LetClickListener(year, month + 1, day);
-
             }
         });
 

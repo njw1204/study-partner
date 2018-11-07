@@ -44,6 +44,7 @@ public class StudyChatActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_study_chat);
+        getSupportActionBar().setTitle(getIntent().getStringExtra("title"));
 
         Intent intent = getIntent();
         CHAT_NAME = intent.getStringExtra("chatname");

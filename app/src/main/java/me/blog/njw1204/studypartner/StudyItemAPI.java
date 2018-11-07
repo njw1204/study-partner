@@ -1,5 +1,7 @@
 package me.blog.njw1204.studypartner;
 
+import android.support.annotation.FractionRes;
+
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
@@ -32,6 +34,9 @@ public interface StudyItemAPI {
     @GET("studypartner/study-check-staff.php")
     Call<ResponseBody> getStudyCheckStaff(@Query("id") String id, @Query("study_no") int study_no);
 
+    @GET("studypartner/study-notice.php")
+    Call<ResponseBody> getStudyNotice(@Query("study_no") int study_no);
+
     @FormUrlEncoded
     @POST("studypartner/study-make.php")  // 아이콘 추가 구현
     Call<ResponseBody> postStudyMake(@Field("id") String id, @Field("pw") String pw, @Field("title") String title,
@@ -63,6 +68,10 @@ public interface StudyItemAPI {
     @FormUrlEncoded
     @POST("studypartner/study-apply-list.php")
     Call<ResponseBody> postStudyApplyList(@Field("id") String id, @Field("pw") String pw, @Field("study_no") int study_no);
+
+    @FormUrlEncoded
+    @POST("studypartner/study-assign-notice.php")
+    Call<ResponseBody> postStudyAssignNotice(@Field("id") String id, @Field("pw") String pw, @Field("study_no") int study_no, @Field("notice") String notice);
 
     @FormUrlEncoded
     @POST("studypartner/study-assign-staff.php")

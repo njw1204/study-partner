@@ -30,9 +30,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="25dp"
         android:clickable="true"
+        android:scaleX="1.15"
+        android:scaleY="1.15"
         app:backgroundTint="@color/design_default_color_primary"
         app:srcCompat="@android:drawable/ic_input_add" />
 
