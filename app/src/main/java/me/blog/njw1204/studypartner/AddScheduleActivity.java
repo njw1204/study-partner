@@ -55,12 +55,16 @@ public class AddScheduleActivity extends AppCompatActivity {
         findViewById(R.id.ok_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "일정이 추가되었습니다.", Toast.LENGTH_LONG).show();
+                if (CUtils.IsEmpty(Edit_Time.getText().toString())) {
+                    Toast.makeText(getApplicationContext(), "시간을 지정해주세요.", Toast.LENGTH_LONG).show();
+                    return;
+                }
                 ScheduleName = ((EditText)findViewById(R.id.newScheduleName)).getText().toString();
                 ScheduleTime =  fyear.toString() + "/" + fmonth.toString() + "/" + fday.toString() + "-"
                         + (Edit_Time.getText().toString());
                 PlanDTO schedule = new PlanDTO(ScheduleName, ScheduleTime);
                 databaseReference.child("Plan").child(getIntent().getStringExtra("studyname")).push().setValue(schedule);
+                Toast.makeText(getApplicationContext(), "일정이 추가되었습니다.", Toast.LENGTH_LONG).show();
                 finish();
             }
         });
